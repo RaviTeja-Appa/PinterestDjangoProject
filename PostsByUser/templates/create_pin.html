@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pinterest</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static "css/create_pin.css" %}">
+    <link rel="icon" href="{% static "/img/favicon.ico" %}" type="image/x-icon" />
+     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/9ab1fedf81.js" crossorigin="anonymous"></script>
+    
+    <style>
+    
+    </style>
+  </head>
+  <body>
+    <div class="nav-bar">
+      <div><a href="{% url "home" %}"><img
+                src="{% static "img/Pinterest_Favicon.webp" %}"
+                alt=""
+                width="25px"
+                height="25px"
+                style="border-radius: 50%"
+              /></a></div>
+      <div><a href="{% url "home" %}">Home</a></div>
+      <div><a href="">Explore</a></div>
+      <div><a href="">Create</a></div>
+      <input type="text" name="" id="" placeholder="Search" />
+      <div><a href=""><i class="fa-solid fa-bell"></i></a></div>
+      <div><a href=""><i class="fa-solid fa-comment-dots"></i></a></div>
+      <div><a href=""><img
+                src="{% static "/img/favicon.ico" %}"
+                alt=""
+                width="25px"
+                height="25px"
+                style="border-radius: 50%"
+              /> </a></div>
+      <div><a href=""><i class="fas fa-angle-down"></i
+            ></a></div>
+    </div>
+    <div class="grid-container" id="grid-container">
+      <div class='sidebar'> 
+        <div><i class="fa-solid fa-angles-right"></i></div>
+        <div><i class="fa-solid fa-plus"></i></div>
+      </div>
+      <div>
+        <div class="title" id='title'>
+          <h1>Create Pin</h1>
+          <button type="submit">Publish</button>
+        </div>
+        <div class="setupforimage">
+          <div class='imagesetup'>
+            
+            <div class="imagesizefixer">
+              <img
+              id="image-preview"
+              src="#"
+              alt="Uploaded Image"
+              style="display: none"
+            />
+            </div>
+            <form method="post" enctype="multipart/form-data" id='pinform'>
+              {% csrf_token %} 
+             
+                    {{ form.title.label_tag }}
+                    <br>
+                    {{ form.title }}
+                    <br>
+                    {{ form.image_description.label_tag }}
+                    <br>
+                    {{ form.image_description }}
+                    <br>
+                    {{ form.board.label_tag }}
+                    <br>
+                    {{ form.board }}
+                    <br>
+                    {{ form.image_tagged_topics.label_tag }}
+                    <br>
+                    {{ form.image_tagged_topics }}
+                    <br>
+                    {{ form.image_Post.label_tag }}
+                    <br>
+                    {{ form.image_Post }}
+                
+            </form>
+          </div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <h1>Create Pin</h1>
+
+    <script>
+      // Function to preview image after selecting file
+      function previewImage(input) {
+        var preview = document.getElementById("image-preview");
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.style.display = "block";
+          };
+
+          reader.readAsDataURL(input.files[0]);
+        } else {
+          preview.src = "#";
+          preview.style.display = "none";
+        }
+      }
+
+      // Attach event listener to file input field
+      document
+        .getElementById("id_image_Post")
+        .addEventListener("change", function () {
+          previewImage(this);
+          setTimeout(() => {
+            document.querySelector('.title button').style.display='block';
+  
+}, 1000);
+        });
+        document.querySelector('.title button').addEventListener('click',()=>{
+          document.getElementById('pinform').submit();
+        })
+    </script>
+  </body>
+</html>

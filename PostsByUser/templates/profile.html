@@ -1,0 +1,56 @@
+<!-- profile.html -->
+
+<h2>{{ user.username }}'s Profile</h2>
+
+<p>Followers: {{ followers_count }}</p>
+<p>Following: {{ following_count }}</p>
+
+{% if user != request.user %} {% if is_following %}
+<form action="{% url 'unfollowing' following_id=following_id %}" method="post">
+  {% csrf_token %}
+  <button type="submit">Unfollow</button>
+</form>
+{% else %}
+<form action="{% url 'adding_followers' user_id=user.id %}" method="post">
+  {% csrf_token %}
+  <button type="submit">Follow</button>
+</form>
+{% endif %} {% endif %}
+
+<br />
+
+<h3>Followers List</h3>
+<ul>
+  {% for follower in followers_list %}
+  <li>
+    {{ follower.followed_by.username }} {% if user == request.user %}
+    <form
+      action="{% url 'removing_follower' follower_id=follower.followed_by.id %}"
+      method="post"
+    >
+      {% csrf_token %}
+      <button type="submit">Remove Follower</button>
+    </form>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+<br />
+
+<h3>Following List</h3>
+<ul>
+  {% for following in following_list %}
+  <li>
+    {{ following.user.username }} {% if user == request.user %}
+    <form
+      action="{% url 'unfollowing' following_id=following.id %}"
+      method="post"
+    >
+      {% csrf_token %}
+      <button type="submit">Unfollow</button>
+    </form>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your Pins</title>
+  </head>
+  <body>
+    <h1>Your Pins {{user.username}}</h1>
+
+    {% if pins %}
+    <ul style="display:flex;">
+      {% for pin in pins %}
+      <li>
+        <h2>{{ pin.title }}</h2>
+        <p>{{ pin.Description }}</p>
+        <img src="{{ pin.image_Post.url }}" alt="{{ pin.title }}" style="border-radius:20px;"/>
+        <a href="{% url 'update_pin' pin.pk %}">Edit</a>
+        <a href="{% url 'delete_pin' pin.pk %}">Delete</a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>You haven't created any pins yet.</p>
+    {% endif %}
+
+    <a href="{% url 'create_pin' %}">Create a New Pin</a>
+    
+  </body>
+</html>
