@@ -15,9 +15,13 @@
       #createboard {
         display: none;
       }
+<<<<<<< HEAD
       
     </style>
     
+=======
+    </style>
+>>>>>>> origin/main
   </head>
   <body>
     <header>
@@ -35,6 +39,7 @@
       <input type="text" name="" id="" placeholder="Search" />
       <div><a href=""><i class="fa-solid fa-bell"></i></a></div>
       <div><a href=""><i class="fa-solid fa-comment-dots"></i></a></div>
+<<<<<<< HEAD
       <div><a href="{% url 'profile' pk=user.id %}">
         {% if user.user_image and user.user_image.url  %}
                 <img src="{{ user.user_image.url }}" alt="" 
@@ -51,6 +56,15 @@
                 {% endif %}
       </a></div>
                
+=======
+      <div><a href=""><img
+                src="{% static "/img/favicon.ico" %}"
+                alt=""
+                width="25px"
+                height="25px"
+                style="border-radius: 50%"
+              /> </a></div>
+>>>>>>> origin/main
       <div id='toggling'><a href="" ><i class="fas fa-angle-down"></i
             ></a></div>
     </div>
@@ -59,6 +73,7 @@
 
     
     {% csrf_token %} {% if request.user.is_authenticated %}
+<<<<<<< HEAD
     <h1 class='welcome' style="text-align:center;">Welcome to Pinterest, {{ request.user.username }}</h1>
      {% comment %} <a href="{% url 'create_pin' %}">create_pin</a>
     <a href="{% url "home_page" %}">home page</a> {% endcomment %}
@@ -69,6 +84,15 @@
 
     <button id="boarddisplay">Board List</button>
     </div>
+=======
+    <h1 class='welcome'>Welcome to Pinterest, {{ request.user.username }}</h1>
+    <a href="{% url 'create_pin' %}">create_pin</a>
+    <a href="{% url "home_page" %}">home page</a>
+    <!-- Button to fetch the create board form -->
+    <button id="fetchCreateBoardForm">Create Board</button>
+
+    <button id="boarddisplay">Board List</button>
+>>>>>>> origin/main
     {% else %}
     <p>You are not logged in. Please log in to access your boards.</p>
     <a href="{% url 'user_login' %}">Login</a>
@@ -88,6 +112,7 @@
         {% endfor %}
       </ul>
     </div>
+<<<<<<< HEAD
     {% comment %} <a href="{% url "log_out" %}">Log out</a> {% endcomment %}
     {% comment %} <a href="{% url "profile" %}">Profiles</a> {% endcomment %}
     <div class="sidebar" id="sideone">
@@ -112,6 +137,13 @@
                   <p>{{ user.email }}</p>
                 </div>
             </a>
+=======
+    <a href="{% url "log_out" %}">Log out</a>
+    {% comment %} <a href="{% url "profile" %}">Profiles</a> {% endcomment %}
+    <div class="sidebar" id="sideone">
+      <p>Currently in</p>
+      <p>Profile Set</p>
+>>>>>>> origin/main
       <p>Your accounts</p>
       <div class="yourAccounts">
         <button>Add account</button>
@@ -131,11 +163,19 @@
         <a href="{% url "log_out" %}">Log out</a>
       </div>
     </div>
+<<<<<<< HEAD
     <div class="container"></div>
      
     
     <script>
       
+=======
+    <div class="container">
+     
+    </div>
+    
+    <script>
+>>>>>>> origin/main
       var imagesurl ='{% url 'home_page' %}'; 
       var boards_url = "{% url 'board_list' %}";
       var createboardurl = "{% url 'create_board' %}";

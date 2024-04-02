@@ -6,6 +6,7 @@
      {% load static %}
     <link rel="stylesheet" href="{% static "css/create_pin.css" %}">
     <link rel="icon" href="{% static "/img/favicon.ico" %}" type="image/x-icon" />
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/9ab1fedf81.js" crossorigin="anonymous"></script>
     <style>
@@ -52,6 +53,14 @@
   to {bottom: 0; opacity: 0;}
 }
 
+=======
+     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/9ab1fedf81.js" crossorigin="anonymous"></script>
+    
+    <style>
+    
+>>>>>>> origin/main
     </style>
   </head>
   <body>
@@ -76,6 +85,7 @@
                 height="25px"
                 style="border-radius: 50%"
               /> </a></div>
+<<<<<<< HEAD
       <div id='toggling'><a href=""><i class="fas fa-angle-down"></i
             ></a></div>
     </div>
@@ -103,15 +113,25 @@
     </div>
     <div class="grid-container" id="grid-container">
       <div class='sidebar1'> 
+=======
+      <div><a href=""><i class="fas fa-angle-down"></i
+            ></a></div>
+    </div>
+    <div class="grid-container" id="grid-container">
+      <div class='sidebar'> 
+>>>>>>> origin/main
         <div><i class="fa-solid fa-angles-right"></i></div>
         <div><i class="fa-solid fa-plus"></i></div>
       </div>
       <div>
         <div class="title" id='title'>
           <h1>Create Pin</h1>
+<<<<<<< HEAD
           {% if image_id %}
           <div id="snackbar">Your content has been published! <a href="{% url "post_detail" pk=image_id %}">view</a></div>
           {% endif %}
+=======
+>>>>>>> origin/main
           <button type="submit">Publish</button>
         </div>
         <div class="setupforimage">
@@ -150,6 +170,7 @@
                 
             </form>
           </div>
+<<<<<<< HEAD
           <div>
             
           </div>
@@ -166,6 +187,13 @@
         </div>
 
     </div> {% endcomment %}
+=======
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <h1>Create Pin</h1>
+>>>>>>> origin/main
 
     <script>
       // Function to preview image after selecting file
@@ -196,6 +224,7 @@
   
 }, 1000);
         });
+<<<<<<< HEAD
     document.querySelector('.title button').addEventListener('click',()=>{
         document.getElementById('pinform').submit();
     });
@@ -236,6 +265,11 @@
 // Call showAlert function when the page loads
 window.onload = showAlert; {% endcomment %}
 
+=======
+        document.querySelector('.title button').addEventListener('click',()=>{
+          document.getElementById('pinform').submit();
+        })
+>>>>>>> origin/main
     </script>
   </body>
 </html>

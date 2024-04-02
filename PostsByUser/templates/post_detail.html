@@ -21,7 +21,11 @@
 
     <!-- Display Comment Form -->
     <h3>Add Comment</h3>
+<<<<<<< HEAD
     <form action="{% url 'add_  comment' image_post_id=post.pk %}" method="post">
+=======
+    <form action="{% url 'add_comment' image_post_id=post.pk %}" method="post">
+>>>>>>> origin/main
       {% csrf_token %}
       <label for="comment_text">Your Comment:</label><br />
       <textarea

@@ -1,7 +1,11 @@
 from .models import Comment
 from .models import Board  # Assuming Board model is in the same app
 from django.forms import forms, ModelForm, ModelChoiceField
+<<<<<<< HEAD
 from .models import Image_Posting, Board, Comment, Following,Save_Post
+=======
+from .models import Image_Posting, Board, Comment, Following
+>>>>>>> origin/main
 from django import forms
 
 
@@ -60,7 +64,11 @@ class PinCreationForm(forms.ModelForm):
             'title': forms.TextInput(attrs={'class': 'form-field', 'placeholder': 'Title'}),
             'image_description': forms.Textarea(attrs={'class': 'form-field-textarea', 'placeholder': 'Image Description'}),
             'image_tagged_topics': forms.TextInput(attrs={'class': 'form-field', 'placeholder': 'Tagged Topics'}),
+<<<<<<< HEAD
             'board': forms.Select(attrs={'class': 'form-select', 'placeholder': 'Select Board', 'style': 'width: 80%'}),
+=======
+            'board': forms.Select(attrs={'class': 'form-field', 'placeholder': 'Select Board', 'style': 'width: 300px'}),
+>>>>>>> origin/main
             
         }
 
@@ -86,9 +94,12 @@ class followingForm(forms.ModelForm):
     class Meta:
         model = Following
         fields = []
+<<<<<<< HEAD
 
 class Save_Form(forms.ModelForm):
     class Meta:
         model = Save_Post
         fields = []
 
+=======
+>>>>>>> origin/main

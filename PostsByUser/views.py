@@ -53,6 +53,7 @@ def create_pin(request):
         if form.is_valid():
             pin = form.save(commit=False)  # Don't commit right away
             pin.user = request.user  # Assign current user
+<<<<<<< HEAD
             pin.save()
             # Save the pin object after setting the user
             image_obj = get_object_or_404(
@@ -65,6 +66,10 @@ def create_pin(request):
             }
             # Redirect to list view
             return render(request, 'create_pin.html', context)
+=======
+            pin.save()  # Save the pin object after setting the user
+            return redirect('list_pins')  # Redirect to list view
+>>>>>>> origin/main
     else:
         # Pass user to form during form initialization in the template
         # No user argument here
@@ -87,7 +92,11 @@ def update_pin(request, pin_id):
         form = PinUpdateForm(request.POST, request.FILES, instance=pin)
         if form.is_valid():
             form.save()
+<<<<<<< HEAD
             return redirect('home')
+=======
+            return redirect('some_success_url')
+>>>>>>> origin/main
     else:
         form = PinUpdateForm(instance=pin)
 
@@ -112,6 +121,7 @@ def post_detail(request, pk):
     liked = Like.objects.filter(
         image_post=post, liked_by=request.user).exists()
     comments = Comment.objects.filter(image_post=post)
+<<<<<<< HEAD
     comments_count = comments.count()
     user = get_object_or_404(User, id=post.user.id)
     followers_count = Following.objects.filter(user=user).count()
@@ -127,11 +137,14 @@ def post_detail(request, pk):
     else:
         following_id = None
         print(f'\n\n {following_id} \n\n')
+=======
+>>>>>>> origin/main
 
     context = {
         'post': post,
         'liked': liked,
         'likes_count': likes_count,
+<<<<<<< HEAD
         'comments': comments,
         'followers_count': followers_count,
         'user': user,
@@ -141,6 +154,11 @@ def post_detail(request, pk):
         'reuested_user': reuested_user  # Pass the flag to the template
     }
     return render(request, 'modification.html', context)
+=======
+        'comments': comments,  # Pass the flag to the template
+    }
+    return render(request, 'post_detail.html', context)
+>>>>>>> origin/main
 
 
 @login_required
@@ -175,7 +193,10 @@ def add_comment(request, image_post_id):
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
+<<<<<<< HEAD
             print(f'\n\n going through unfollow \n\n')
+=======
+>>>>>>> origin/main
             comment = form.save(commit=False)
             comment.user = image_post.user
             comment.image_post = image_post
@@ -185,7 +206,11 @@ def add_comment(request, image_post_id):
     else:
         form = CommentForm()
 
+<<<<<<< HEAD
     # return render(request, 'add_comment.html', {'form': form})
+=======
+    return render(request, 'add_comment.html', {'form': form})
+>>>>>>> origin/main
 
 
 @login_required
@@ -204,6 +229,7 @@ def adding_followers(request, user_id):
     Following.objects.get_or_create(
         user=user_to_follow, followed_by=request.user)
 
+<<<<<<< HEAD
     referring_url = request.META.get('HTTP_REFERER')
     if referring_url and 'post/' in referring_url:
         url_parts = referring_url.split('/')
@@ -213,6 +239,8 @@ def adding_followers(request, user_id):
 
         return redirect('post_detail', pk=image_post_id)
 
+=======
+>>>>>>> origin/main
     return redirect('profile', pk=user_to_follow.id)
 
 
@@ -237,6 +265,7 @@ def unfollowing(request, following_id):
 
     following_relation = get_object_or_404(
         Following, id=following_id, followed_by=request.user)
+<<<<<<< HEAD
     following_relation.delete()
     referring_url = request.META.get('HTTP_REFERER')
     if referring_url and 'post/' in referring_url:
@@ -245,6 +274,10 @@ def unfollowing(request, following_id):
 
         image_post_id = url_parts[image_id_index]
         return redirect('post_detail', pk=image_post_id)
+=======
+    print(f'\n\n going through unfollow ${following_relation.user.id},${following_id} \n\n')
+    following_relation.delete()
+>>>>>>> origin/main
     return redirect('profile', pk=following_relation.user.id)
 
 
@@ -254,26 +287,39 @@ def profile(request, pk=None):  # Add user_id parameter with a default value
         user = get_object_or_404(User, id=pk)
     else:
         user = request.user
+<<<<<<< HEAD
     requested_user = request.user
+=======
+
+>>>>>>> origin/main
     followers_count = Following.objects.filter(user=user).count()
     following_count = Following.objects.filter(followed_by=user).count()
     followers_list = Following.objects.filter(user=user)
     following_list = Following.objects.filter(followed_by=user)
     is_following = Following.objects.filter(
         user=user, followed_by=request.user).exists()
+<<<<<<< HEAD
     user_posts = Image_Posting.objects.filter(user=user.id)
+=======
+>>>>>>> origin/main
 
     if is_following:
         following_relation = Following.objects.get(
             user=user, followed_by=request.user)
         following_id = following_relation.id
+<<<<<<< HEAD
         print('\n\n {following_id} \n\n')
+=======
+>>>>>>> origin/main
     else:
         following_id = None
 
     context = {
+<<<<<<< HEAD
         'user_posts': user_posts,
         'requested_user': requested_user,
+=======
+>>>>>>> origin/main
         'user': user,
         'followers_count': followers_count,
         'following_count': following_count,
@@ -283,6 +329,7 @@ def profile(request, pk=None):  # Add user_id parameter with a default value
         'following_id': following_id,  # Pass following_id to template
     }
     return render(request, 'profile.html', context)
+<<<<<<< HEAD
 
 
 @login_required
@@ -291,3 +338,5 @@ def saving_Post(request,pk=None):
     if pk:
         image_data= get_object_or_404(Image_Posting,id=pk)
     
+=======
+>>>>>>> origin/main

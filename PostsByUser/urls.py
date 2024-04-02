@@ -24,7 +24,10 @@ urlpatterns = [
     path('profile/follow/<int:user_id>/',
          views.adding_followers, name='adding_followers'),
     path('profile/unfollow/<int:following_id>/',
+<<<<<<< HEAD
     
+=======
+>>>>>>> origin/main
          views.unfollowing, name='unfollowing'),
     path('profile/removefollower/<int:follower_id>/',
          views.removing_follower, name='removing_follower'),

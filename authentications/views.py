@@ -32,7 +32,10 @@ def register(request):
             # user = authenticate(request, username=username, password=password)
 
             login(request, user)
+<<<<<<< HEAD
             request.session['registration_success'] = True
+=======
+>>>>>>> origin/main
             return redirect('home')  # Redirect to home after login
 
     else:
@@ -43,6 +46,10 @@ def register(request):
 
 def user_login(request):
     error_message = None  # Initialize error message
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/main
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -67,8 +74,12 @@ def user_logout(request):
 
 @login_required
 def home(request):
+<<<<<<< HEAD
     registration_success = request.session.pop('registration_success', False)
     context = {
         'registration_success': registration_success} if registration_success else {}
 
     return render(request, 'home.html', context)
+=======
+    return render(request, 'home.html')
+>>>>>>> origin/main

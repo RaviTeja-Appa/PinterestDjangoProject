@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Your Pins</title>
+<<<<<<< HEAD
     {% load static %} <link rel="stylesheet" href="{% static "css/listpin.css"
     %}">
     <style>
@@ -47,6 +48,21 @@
           <a href="{% url 'update_pin' pin.pk %}">Edit</a>
           <a href="{% url 'delete_pin' pin.pk %}">Delete</a>
         </div>
+=======
+  </head>
+  <body>
+    <h1>Your Pins {{user.username}}</h1>
+
+    {% if pins %}
+    <ul style="display:flex;">
+      {% for pin in pins %}
+      <li>
+        <h2>{{ pin.title }}</h2>
+        <p>{{ pin.Description }}</p>
+        <img src="{{ pin.image_Post.url }}" alt="{{ pin.title }}" style="border-radius:20px;"/>
+        <a href="{% url 'update_pin' pin.pk %}">Edit</a>
+        <a href="{% url 'delete_pin' pin.pk %}">Delete</a>
+>>>>>>> origin/main
       </li>
       {% endfor %}
     </ul>
@@ -55,5 +71,9 @@
     {% endif %}
 
     <a href="{% url 'create_pin' %}">Create a New Pin</a>
+<<<<<<< HEAD
+=======
+    
+>>>>>>> origin/main
   </body>
 </html>

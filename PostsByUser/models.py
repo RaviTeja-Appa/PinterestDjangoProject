@@ -85,6 +85,7 @@ class Following(models.Model):
     @property
     def following_users(self):
         return Following.objects.filter(followed_by=self.user)
+<<<<<<< HEAD
 
 
 class Save_Post(models.Model):
@@ -96,3 +97,5 @@ class Save_Post(models.Model):
         return f"{self.user2.username} saves {self.image.title}"
     
     
+=======
+>>>>>>> origin/main

@@ -8,7 +8,10 @@ from .managers import UserManager
 
 # Inherit from PermissionsMixin for Django >= 2.0
 class User(AbstractBaseUser, PermissionsMixin):
+<<<<<<< HEAD
     user_image = models.ImageField(blank=True, upload_to='userimages/')
+=======
+>>>>>>> origin/main
     email = models.EmailField(verbose_name='email',
                               max_length=255, unique=True)
     username = models.CharField(max_length=30, unique=True)

@@ -1,10 +1,14 @@
 * {
   padding: 0;
   margin: 0;
+<<<<<<< HEAD
   box-sizing: border-box;
 }
 /* ssh -i ~/Documents/Demo\ Practice/PythonDjango/awsKey.pem ubuntu@3.27.173.45 */
 /* scp -i awsKey.pem Pinterest_Django.zip  ubuntu@3.27.173.45:~/ */
+=======
+}
+>>>>>>> origin/main
 body {
   /* color: rgb(33, 25, 34); */
   font-family: var(--font-family-latin);
@@ -148,7 +152,11 @@ body {
 .title button:hover {
   background-color: var(--header-pin-bg);
 }
+<<<<<<< HEAD
 .sidebar1 > div {
+=======
+.sidebar > div {
+>>>>>>> origin/main
   width: 100%;
   height: 80px;
   /* background-color: black; */
@@ -157,7 +165,11 @@ body {
   justify-content: center;
   font-size: 25px;
 }
+<<<<<<< HEAD
 .sidebar1 > div:last-child {
+=======
+.sidebar > div:last-child {
+>>>>>>> origin/main
   border-bottom: 1px solid #cdcdcd;
 }
 
@@ -181,6 +193,7 @@ body {
 .imagesetup > form {
   flex: 1;
 }
+<<<<<<< HEAD
 .imagesizefixer {
   flex: 1;
 }
@@ -190,6 +203,14 @@ body {
 .form-field,
 .imagesetup form select {
   margin: 10px 0px;
+=======
+.imagesetup > form .label_tag {
+  margin: 4px;
+}
+.form-field,
+.imagesetup form select {
+  margin: 5px 0px;
+>>>>>>> origin/main
   height: 30px;
   width: 80%;
   border-radius: 16px;
@@ -199,6 +220,7 @@ body {
   font-family: var(--font-family-latin);
   font-size: var(--basic-font-size);
 }
+<<<<<<< HEAD
 
 /* change made */
 
@@ -210,6 +232,17 @@ body {
   border-radius: 18px;
 }
 
+=======
+/* change made */
+
+.imagesizefixer {
+  max-height: 65vh;
+  min-width: 225px;
+  max-width: 400px;
+  background-color: #e9e9e9;
+  border-radius: 18px;
+}
+>>>>>>> origin/main
 .imagesizefixer > img {
   /* aspect-ratio: 1/3; */
   width: 100%;
@@ -238,6 +271,7 @@ body {
   border: 2px solid #a5a5a5;
   outline: 4.5px solid #45a3fe;
 }
+<<<<<<< HEAD
 .sidebar {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 30px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
@@ -314,3 +348,5 @@ body {
 .alert {
   margin: 50vh;
 }
+=======
+>>>>>>> origin/main
